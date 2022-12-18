@@ -1,8 +1,8 @@
 diff --git a/tools/install.sh b/tools/install.sh
-index 495ad2c1..7d562bd6 100755
+index a6538f9d..04fa80c8 100755
 --- a/tools/install.sh
 +++ b/tools/install.sh
-@@ -258,40 +258,7 @@ setup_ohmyzsh() {
+@@ -264,40 +264,8 @@ setup_ohmyzsh() {
    # that this will be ignored under Cygwin by default, as Windows ACLs take
    # precedence over umasks except for filesystems mounted with option "noacl".
    umask g-w,o-w
@@ -15,7 +15,7 @@ index 495ad2c1..7d562bd6 100755
 -  }
 -
 -  ostype=$(uname)
--  if [ -z "${ostype%CYGWIN*}" ] && git --version | grep -q msysgit; then
+-  if [ -z "${ostype%CYGWIN*}" ] && git --version | grep -Eq 'msysgit|windows'; then
 -    fmt_error "Windows/MSYS Git is not supported on Cygwin"
 -    fmt_error "Make sure the Cygwin git package is installed and is first on the \$PATH"
 -    exit 1
@@ -41,6 +41,7 @@ index 495ad2c1..7d562bd6 100755
 -    exit 1
 -  }
 +  cp -ra "$(dirname "$0")"/.. $ZSH
++  rm -rf $ZSH/.git
    # Exit installation directory
    cd -
  
