@@ -1,12 +1,11 @@
 diff --git a/tools/install.sh b/tools/install.sh
-index a6538f9d..04fa80c8 100755
+index fcfbcf77..4d34ed5c 100755
 --- a/tools/install.sh
 +++ b/tools/install.sh
-@@ -264,40 +264,8 @@ setup_ohmyzsh() {
-   # that this will be ignored under Cygwin by default, as Windows ACLs take
+@@ -281,39 +281,8 @@ setup_ohmyzsh() {
    # precedence over umasks except for filesystems mounted with option "noacl".
    umask g-w,o-w
--
+ 
 -  echo "${FMT_BLUE}Cloning Oh My Zsh...${FMT_RESET}"
 -
 -  command_exists git || {
